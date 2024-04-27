@@ -150,6 +150,7 @@ def main():
 
     # Wait until the activate button has been pressed
     while True:
+        print("This will make the robot move")
         print("Waiting for L1 to activate robot.")
         while True:
             command = joystick_interface.get_command(state)
