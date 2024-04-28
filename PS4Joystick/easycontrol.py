@@ -2,7 +2,7 @@ from UDPComms import Publisher
 
 a=Publisher(8830,65530)
 a.send({"L1": 1, 
-        "R1": 0, 
+        "R1": 1, 
         "x": 0, 
         "circle": 0, 
         "triangle": 0, 
