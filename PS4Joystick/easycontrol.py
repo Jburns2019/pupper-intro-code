@@ -38,7 +38,7 @@ def trot():
     
 def trot_stop():
     a.send({"L1": 1, 
-            "R1": 1, 
+            "R1": 0, 
             "x": 0, 
             "circle": 0, 
             "triangle": 0, 
