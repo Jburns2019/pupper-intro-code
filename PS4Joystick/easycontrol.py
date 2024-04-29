@@ -1,8 +1,7 @@
 from UDPComms import Publisher
 
 a=Publisher(8830)
-def activate():
-    a.send({"L1": 1, 
+a.send({"L1": 1, 
         "R1": 0, 
         "x": 0, 
         "circle": 0, 
@@ -17,7 +16,6 @@ def activate():
         "dpady": 0, 
         "dpadx": 0}) 
 
-activate()
 # # a.send({"L1": 1, 
 # #         "R1": 0, 
 # #         "x": 0, 
