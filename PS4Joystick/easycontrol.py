@@ -2,7 +2,8 @@ from UDPComms import Publisher
 a=Publisher(8830)
 
 def activate():
-    a.send({"L1": 1})
+    active = a.send({"L1": 1})
+    return activate
 
 
 # a.send({"L1": 1, 
