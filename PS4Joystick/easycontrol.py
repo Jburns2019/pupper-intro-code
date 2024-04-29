@@ -1,7 +1,7 @@
 from UDPComms import Publisher
 
 a=Publisher(8830)
-def activate(a):
+def activate():
     a.send({"L1": 1, 
         "R1": 0, 
         "x": 0, 
