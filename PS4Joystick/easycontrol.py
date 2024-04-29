@@ -1,9 +1,19 @@
 from UDPComms import Publisher
-import time
+import time 
 # look into joystickinterface.py for control outputs
-
+# rover example for how to control more aspects of robot arm_pub = Publisher(8410)
 a=Publisher(8830)
-
+# L1 = activate/disactivate
+# R1 = transition between Rest mode and Trot mode.
+# circle = dance or hold for 3 seconds to turn off system
+# trinagle  = NOTHING 
+# X = jump
+# L2 = nothing
+# R2 = Nothing
+# ly = forward or backwards
+# lx = left or right
+# rx = turn left or right (pitch)
+# ry = pitches the robot forward
 def activate():
     a.send({"L1": 1, 
             "R1": 0, 
