@@ -1,8 +1,7 @@
 from UDPComms import Publisher
 
-a=Publisher(8830)
 
-def activate():
+def activate(a):
     a.send({"L1": 1, 
         "R1": 0, 
         "x": 0, 
@@ -35,4 +34,5 @@ def activate():
 #         "dpadx": 0}) 
 
 if __name__ == "__main__":
-    activate()
+    a=Publisher(8830)
+    activate(a)
