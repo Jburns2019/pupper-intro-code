@@ -61,10 +61,21 @@ def trot_stop():
             "ry": 0, 
             "dpady": 0, 
             "dpadx": 0})
+    
+def move():
+    out = {'f':400,'t':0}
+    a.send(out)
+    print(out)
+
+def stop():
+    out = {'f':0,'t':0}
+    a.send(out)
+    print(out)
 
 # a.send({"L1": 1, "R1": 0, "x": 0, "circle": 0, "triangle": 0, "L2": 0, "R2": 0, "ly": 0, "lx": 0, "rx": 0, "message_rate": 1, "ry": 0, "dpady": 0, "dpadx": 0}) 
 if __name__ == "__main__":
     # activate()
-    trot()
+    move()
     time.sleep(5)
-    trot_stop()
+    # trot_stop()
+    stop()
