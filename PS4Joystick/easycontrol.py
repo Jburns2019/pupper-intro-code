@@ -87,4 +87,4 @@ if __name__ == "__main__":
     trot()
     time.sleep(5)
     trot_stop()
-    activate_stop()
+    # activate_stop()
