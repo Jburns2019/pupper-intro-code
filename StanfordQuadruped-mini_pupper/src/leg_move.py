@@ -5,8 +5,9 @@ import time
 # from src.IMU import IMU
 # from src.Controller import Controller
 # from src.JoystickInterface import JoystickInterface
-from src.State import BehaviorState, State
+from src.State import State
 from MangDang.mini_pupper.HardwareInterface import HardwareInterface
+from pupper.HardwareInterface import HardwareInterface
 # from MangDang.mini_pupper.Config import Configuration
 # from pupper.Kinematics import four_legs_inverse_kinematics
 # from MangDang.mini_pupper.display import Display
