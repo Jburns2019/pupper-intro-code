@@ -14,7 +14,7 @@ from src.MovementScheme import MovementScheme
 from src.danceSample import MovementLib
 
 
-def main(use_imu=False):
+def main():
     state = State()
     # config = Configuration()
     hardware_interface = HardwareInterface()
@@ -46,3 +46,10 @@ def main(use_imu=False):
 
 if __name__ == "__main__":
     main()
+
+# # leg =  Specifies which leg to control. 0 is front-right, 1 is front-left, 2 is back-right, 3 is back-left.
+# # axis = Specifies which joint of leg to control. 0 is abduction servo, 1 is inner hip servo, 2 is outer hip servo.
+# # angle = Desired servo angle, relative to the vertical (z) axis
+# # pwmparams = PWMParams object
+# def move_legs(pwm_params, servo_params, joint_angle, axis, leg):
+#     [...]
