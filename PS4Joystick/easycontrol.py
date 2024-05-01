@@ -100,7 +100,7 @@ def move_forward():
 if __name__ == "__main__":
     activate()
     trot()
-    move_forward()
+    # move_forward()
     time.sleep(5)
     trot_stop()
     # activate_stop()
