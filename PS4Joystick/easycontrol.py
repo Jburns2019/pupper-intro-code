@@ -98,7 +98,7 @@ def move_forward():
             "dpadx": 0})
     
 if __name__ == "__main__":
-    # activate()
+    activate()
     trot()
     # move_forward()
     time.sleep(5)
