@@ -17,8 +17,9 @@ import os
 import sys
 
 def main():
-    os.popen("echo 1500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
-    # os.popen("echo 0 > /sys/class/gpio/gpio"+ str(servo2_en) + "/value")
+    os.system("sudo systemctl stop robot")
+    os.system("echo 1500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
+    # os.system("echo 0 > /sys/class/gpio/gpio"+ str(servo2_en) + "/value")
     # state = State()
     # # config = Configuration()
     # hardware_interface = HardwareInterface()
