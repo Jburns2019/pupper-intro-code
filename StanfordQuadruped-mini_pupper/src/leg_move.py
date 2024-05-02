@@ -23,15 +23,19 @@ pwm_per_degree = total_pwm_change/total_degrees
 
 def move_servo15():
     global zero
-    degree_finder = zero + (pwm_per_degree * 7)
-    os.system("echo" + str(2500000) + "> /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
+    what_degree = 30
+    degree_finder = zero + (pwm_per_degree * what_degree)
+    os.system("echo" + str(degree_finder) + "> /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
     time.sleep(1)
-    # os.system("echo 2500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
-    # time.sleep(1)
-    # os.system("echo 500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
+    os.system("echo 2500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
+    time.sleep(1)
+    os.system("echo 500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
+
     print("done")
+
 def main():
     os.system("sudo systemctl stop robot")
+    move_servo15()
 
 if __name__ == "__main__":
     main()
