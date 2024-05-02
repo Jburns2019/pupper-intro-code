@@ -11,3 +11,4 @@ def move():
 
 if __name__ == "__main__":
     move()
+    print("done")
