@@ -23,7 +23,7 @@ pwm_per_degree = total_pwm_change/total_degrees
 
 def move_servo15():
     global zero
-    degree_finder = zero = (pwm_per_degree * 7)
+    degree_finder = zero + (pwm_per_degree * 7)
     os.system("echo" + str(degree_finder) + "> /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
     time.sleep(1)
     # os.system("echo 2500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
