@@ -5,7 +5,7 @@ import numpy as np
 import time
 from MangDang.mini_pupper.HardwareInterface import HardwareInterface
 from MangDang.mini_pupper.Config import Configuration
-from pupper.Kinematics import four_legs_inverse_kinematics
+from StanforQuadruped-mini_pupper.src.Kinematics import four_legs_inverse_kinematics
 
 config = Configuration()
 state = State()
