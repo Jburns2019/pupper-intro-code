@@ -70,11 +70,11 @@ if __name__ == "__main__":
     activate()
     # trot()
     time.sleep(1)
-    trot()
+    # trot()
     print("moving forward")
-    time.sleep(5)
+    time.sleep(1)
     a = True
     while a:
-        move_forward()
+        trot()
     # trot_stop()
     # activate_stop()
