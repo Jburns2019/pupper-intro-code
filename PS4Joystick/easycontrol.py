@@ -89,7 +89,7 @@ def move_forward():
             "triangle": 0, 
             "L2": 0, 
             "R2": 0, 
-            "ly": 0.1, 
+            "ly": -0.1, 
             "lx": 0, 
             "rx": 0, 
             "message_rate": 20, 
@@ -98,11 +98,11 @@ def move_forward():
             "dpadx": 0})
     
 if __name__ == "__main__":
-    activate()
-    trot()
+    # activate()
+    # trot()
     # time.sleep(1)
     print("moving forward")
     move_forward()
     time.sleep(5)
-    trot_stop()
+    # trot_stop()
     # activate_stop()
