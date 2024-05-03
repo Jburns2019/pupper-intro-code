@@ -33,7 +33,7 @@ def activate():
             "dpadx": 0})
 
 def trot():
-    a.send({"L1": 1, 
+    a.send({"L1": 0, 
             "R1": 1, 
             "x": 0, 
             "circle": 0, 
@@ -50,14 +50,14 @@ def trot():
     
     
 def move_forward():
-    a.send({"L1": 1, 
-            "R1": 1, 
+    a.send({"L1": 0, 
+            "R1": 0, 
             "x": 0, 
             "circle": 0, 
             "triangle": 0, 
             "L2": 0, 
             "R2": 0, 
-            "ly": -0.1, 
+            "ly": 0.1, 
             "lx": 0, 
             "rx": 0, 
             "message_rate": 20, 
@@ -66,11 +66,14 @@ def move_forward():
             "dpadx": 0})
     
 if __name__ == "__main__":
-    # activate()
+    activate()
     # trot()
-    # time.sleep(1)
+    time.sleep(1)
+    trot()
     print("moving forward")
-    move_forward()
     time.sleep(5)
+    a = True
+    while a:
+        move_forward()
     # trot_stop()
     # activate_stop()
