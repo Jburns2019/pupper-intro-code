@@ -32,23 +32,6 @@ def activate():
             "dpady": 0, 
             "dpadx": 0})
 
-def activate_stop():
-    a.send({"L1": 0, 
-            "R1": 0, 
-            "x": 0, 
-            "circle": 0, 
-            "triangle": 0, 
-            "L2": 0, 
-            "R2": 0, 
-            "ly": 0, 
-            "lx": 0, 
-            "rx": 0, 
-            "message_rate": 20, 
-            "ry": 0, 
-            "dpady": 0, 
-            "dpadx": 0})
-
-
 def trot():
     a.send({"L1": 1, 
             "R1": 1, 
@@ -65,21 +48,6 @@ def trot():
             "dpady": 0, 
             "dpadx": 0})
     
-def trot_stop():
-    a.send({"L1": 1, 
-            "R1": 0, 
-            "x": 0, 
-            "circle": 0, 
-            "triangle": 0, 
-            "L2": 0, 
-            "R2": 0, 
-            "ly": 0, 
-            "lx": 0, 
-            "rx": 0, 
-            "message_rate": 20, 
-            "ry": 0, 
-            "dpady": 0, 
-            "dpadx": 0})
     
 def move_forward():
     a.send({"L1": 1, 
