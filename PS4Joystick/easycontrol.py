@@ -66,8 +66,8 @@ def trot():
     
     
 def move_forward():
-    while True:
-        drive_pub.send({"L1": 0, 
+    # while True:
+    drive_pub.send({"L1": 0, 
             "R1": 0, 
             "x": 0, 
             "circle": 0, 
@@ -88,12 +88,8 @@ if __name__ == "__main__":
     time.sleep(1)
     trot()
     time.sleep(1)
-    move_forward()
 
-    print("moving forward")
-
-
-    # while :
-    #     move_forward()
+    while True:
+        move_forward()
     # trot_stop()
     # activate_stop()
