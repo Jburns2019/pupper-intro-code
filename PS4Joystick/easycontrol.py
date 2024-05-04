@@ -74,7 +74,7 @@ def move_forward():
             "L2": 0, 
             "R2": 0, 
             "ly": 0.8, 
-            "lx": 0.3, 
+            "lx": 0.0, 
             "rx": 0, 
             "message_rate": 20, 
             "ry": 0, 
@@ -88,17 +88,7 @@ if __name__ == "__main__":
     trot()
     time.sleep(1)
     move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
-    move_forward()
+    
     print("moving forward")
     # time.sleep(10)
     a = True
