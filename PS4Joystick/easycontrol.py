@@ -75,7 +75,7 @@ def move_forward():
             "L2": 0, 
             "R2": 0, 
             "ly": 0.8, 
-            "lx": 0.9, 
+            "lx": 0.2, 
             "rx": 0, 
             "message_rate": 20, 
             "ry": 0, 
