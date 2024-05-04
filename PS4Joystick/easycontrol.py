@@ -4,7 +4,7 @@ import time
 # drive_pub = Publisher(8830) = controls movement of pupper (basically mode 1)
 # arm_pub = Publisher(8410) = controls more movements of upper (mode 2)
 # mode 2 is what you can do when pupper is not in trot mode when using a controller.
-drive_pub = Publisher(8830)
+drive_pub = Publisher(8830) 
 arm_pub = Publisher(8410)
 # L1 = activate/disactivate
 # R1 = transition between Rest mode and Trot mode.
@@ -47,49 +47,7 @@ def lean():
                   "trueXYZ": 0,  # circle,
                   "dock": 0}  # triangle}
     arm_pub.send(target_vel)
-
-def trot():
-    drive_pub.send({"L1": 0, 
-            "R1": 1, 
-            "x": 0, 
-            "circle": 0, 
-            "triangle": 0, 
-            "L2": 0, 
-            "R2": 0, 
-            "ly": 0, 
-            "lx": 0, 
-            "rx": 0, 
-            "message_rate": 20, 
-            "ry": 0, 
-            "dpady": 0, 
-            "dpadx": 0})
-    
-    
-def move_forward():
-    # while True:
-    drive_pub.send({"L1": 0, 
-            "R1": 0, 
-            "x": 0, 
-            "circle": 0, 
-            "triangle": 0, 
-            "L2": 0, 
-            "R2": 0, 
-            "ly": 0.8, 
-            "lx": 0.2, 
-            "rx": 0, 
-            "message_rate": 20, 
-            "ry": 0, 
-            "dpady": 0, 
-            "dpadx": 0})
     
 if __name__ == "__main__":
     activate()
-    # trot()
-    time.sleep(1)
-    trot()
-    time.sleep(1)
-
-    while True:
-        move_forward()
-    # trot_stop()
-    # activate_stop()
+    
