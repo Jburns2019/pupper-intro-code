@@ -89,9 +89,9 @@ if __name__ == "__main__":
     time.sleep(1)
     move_forward()
     print("moving forward")
-    time.sleep(1)
+    time.sleep(10)
     a = True
-    while a:
-        move_forward()
+    # while :
+    #     move_forward()
     # trot_stop()
     # activate_stop()
