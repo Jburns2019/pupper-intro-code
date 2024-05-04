@@ -91,7 +91,7 @@ if __name__ == "__main__":
     print("moving forward")
     time.sleep(1)
     a = True
-    # while a:
-    #     lean()
+    while a:
+        move_forward()
     # trot_stop()
     # activate_stop()
