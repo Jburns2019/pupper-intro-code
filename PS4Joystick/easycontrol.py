@@ -86,6 +86,8 @@ if __name__ == "__main__":
     # trot()
     time.sleep(1)
     trot()
+    time.sleep(1)
+    move_forward()
     print("moving forward")
     time.sleep(1)
     a = True
