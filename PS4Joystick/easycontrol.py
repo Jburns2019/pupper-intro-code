@@ -32,6 +32,21 @@ def activate():
             "ry": 0, 
             "dpady": 0, 
             "dpadx": 0})
+    
+def lean():
+    target_vel = {"x": 0.0,
+                  "y": 0.8,
+                  "z": 0.0, # (r_trigger - l_trigger)/2,
+                  "yaw": 0,  # r_side,
+                  "pitch": 0, # r_forward,
+                  "roll": 0,  # (r_shoulder - l_shoulder),
+                  "grip": 0,  # cross - square,
+                  "hat":  0, # hat,
+                  "reset": 0,  # reset,
+                  "resetdock": 0,  #reset_dock,
+                  "trueXYZ": 0,  # circle,
+                  "dock": 0}  # triangle}
+    arm_pub.send(target_vel)
 
 def trot():
     drive_pub.send({"L1": 0, 
@@ -75,6 +90,6 @@ if __name__ == "__main__":
     time.sleep(1)
     a = True
     while a:
-        trot()
+        lean()
     # trot_stop()
     # activate_stop()
