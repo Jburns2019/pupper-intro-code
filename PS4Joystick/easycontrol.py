@@ -87,11 +87,14 @@ if __name__ == "__main__":
     time.sleep(1)
     trot()
     time.sleep(1)
-    move_forward()
-    
+    # move_forward()
+
     print("moving forward")
     # time.sleep(10)
-    a = True
+    while True:
+        move_forward()
+        print("moving")
+
     # while :
     #     move_forward()
     # trot_stop()
