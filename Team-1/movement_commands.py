@@ -144,7 +144,7 @@ if __name__ == "__main__":
     for i in range(10):
         print(f'Run {i + 1}')
         send_command(make_cmd(toggle_activation=True, trot=True, x=1))
-        time.sleep(.8)
+        time.sleep(1)
         print()
     
     send_command(make_cmd(toggle_activation=True))
