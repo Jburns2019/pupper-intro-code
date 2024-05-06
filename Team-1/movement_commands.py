@@ -105,12 +105,11 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
-    time.sleep(10)
     move('forward')
-    time.sleep(10)
+    time.sleep(1)
     move('right')
-    time.sleep(10)
+    time.sleep(1)
     move('forward-right')
-    time.sleep(10)
+    time.sleep(1)
     deactivate()
     
