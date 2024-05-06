@@ -142,7 +142,7 @@ if __name__ == "__main__":
         print(f'Run {i + 1}')
         send_command(make_cmd(toggle_activation=True, trot=True, x=1, y=1))
         time.sleep(.5)
-        send_command(make_cmd(toggle_activation=True, trot=False))
+        send_command(make_cmd(toggle_activation=True, trot=True))
         time.sleep(1)
         print()
     
