@@ -23,9 +23,9 @@ is_on = False
 is_trotting = False
 verbose = True
 
-def make_cmd(command = {}, toggle_activation=False, toggle_trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
+def make_cmd(command = {}, toggle_activation=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
     command["L1"] = int(toggle_activation)
-    command["R1"] = int(toggle_trot)
+    command["R1"] = int(trot)
     command["x"] = int(jump)
     command["circle"] = int(circle)
     command["triangle"] = int(triangle)
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     # time.sleep(1)
     send_command(make_cmd(toggle_activation=True))
     time.sleep(1)
-    send_command(make_cmd(toggle_trot=True))
+    send_command(make_cmd(trot=True, x=1, y=1))
     time.sleep(20)
     # send_command(make_cmd(toggle_trot=True))
     # time.sleep(1)
