@@ -82,7 +82,7 @@ def move(dir: str='None'):
         if not is_trotting:
             toggle_trot = True
 
-        drive_pub.send(make_cmd(toggle_trot=toggle_trot, x=y, y=y))
+        drive_pub.send(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
         # print(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
         is_trotting = True
 
