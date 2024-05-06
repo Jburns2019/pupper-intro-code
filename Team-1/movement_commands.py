@@ -69,7 +69,7 @@ def move(dir: str='None'):
         elif 'back' in dir:
             y = -1
 
-        send_command(make_cmd(trot=True, x=x, y=y))
+        send_command(make_cmd(toggle_activation=True, trot=True, x=x, y=y))
 
 def turn(dir: str='None'):
     if dir == 'None':
@@ -87,7 +87,7 @@ def turn(dir: str='None'):
         elif 'back' in dir:
             y = -1
         
-        send_command(make_cmd(trot=True, y=y, xy_yaw=xy_yaw))
+        send_command(make_cmd(toggle_activation=True, trot=True, y=y, xy_yaw=xy_yaw))
 
 def stop_moving():
     send_command(make_cmd())
@@ -105,6 +105,7 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
+    time.sleep(.5)
     move('forward')
     time.sleep(1)
     move('right')
