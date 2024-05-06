@@ -4,8 +4,8 @@ import time
 # drive_pub = Publisher(8830) = controls movement of pupper (basically mode 1)
 # arm_pub = Publisher(8410) = controls more movements of upper (mode 2)
 # mode 2 is what you can do when pupper is not in trot mode when using a controller.
-drive_pub = Publisher(8830) 
-# arm_pub = Publisher(8410)
+# drive_pub = Publisher(8830) 
+arm_pub = Publisher(8410)
 # L1 = activate/disactivate
 # R1 = transition between Rest mode and Trot mode.
 # circle = dance or hold for 3 seconds to turn off system
@@ -123,7 +123,7 @@ def stop_moving():
     is_trotting = False
 
 def send_command(command):
-    drive_pub.send(command)
+    arm_pub.send(command)
 
     if verbose:
         print(command)
