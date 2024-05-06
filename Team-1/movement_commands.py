@@ -136,7 +136,7 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     time.sleep(1)
-    send_command(make_cmd(toggle_activation=True, toggle_trot=True))
+    send_command(make_cmd(toggle_trot=True))
     send_command(make_cmd(x=1, y=0))
     time.sleep(5)
     send_command(make_cmd(toggle_activation=True, toggle_trot=True))
