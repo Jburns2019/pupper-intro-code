@@ -16,7 +16,7 @@ if running_on_pupper:
 # L1 = activate/disactivate
 # R1 = transition between Rest mode and Trot mode.
 # circle = dance or hold for 3 seconds to turn off system
-# trinagle  = NOTHIN
+# trinagle  = NOTHING
 # X = jump
 # L2 = nothing
 # R2 = Nothing
