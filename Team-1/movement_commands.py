@@ -139,7 +139,7 @@ if __name__ == "__main__":
     send_command(make_cmd(toggle_activation=True))
     time.sleep(1)
     send_command(make_cmd(toggle_trot=True))
-    time.sleep(5)
+    time.sleep(20)
     # send_command(make_cmd(toggle_trot=True))
     # time.sleep(1)
     # send_command(make_cmd(x=1, y=0))
