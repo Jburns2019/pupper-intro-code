@@ -135,6 +135,7 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
+    time.sleep(1)
     send_command(make_cmd(toggle_activation=True, toggle_trot=True))
     send_command(make_cmd(toggle_activation=True, toggle_trot=True, x=1, y=0))
     time.sleep(5)
