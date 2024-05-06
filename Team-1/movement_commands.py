@@ -21,6 +21,7 @@ drive_pub = Publisher(8830)
 
 is_on = False
 is_trotting = False
+verbose = True
 
 def make_cmd(command = {}, toggle_activation=False, toggle_trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
     command["L1"] = int(toggle_activation)
@@ -43,8 +44,7 @@ def make_cmd(command = {}, toggle_activation=False, toggle_trot=False, jump=Fals
 def activate():
     global is_on
     if not is_on:
-        drive_pub.send(make_cmd(toggle_activation=True))
-        # print(make_cmd(toggle_activation=True))
+        send_command(make_cmd(toggle_activation=True))
         is_on = True
 
 def deactivate():
@@ -55,8 +55,7 @@ def deactivate():
         toggle_trot = True
 
     if is_on:
-        drive_pub.send(make_cmd(toggle_activation=True))
-        # print(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
+        send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
         is_on = False
         is_trotting = False
 
@@ -82,8 +81,7 @@ def move(dir: str='None'):
         if not is_trotting:
             toggle_trot = True
 
-        drive_pub.send(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
-        # print(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
+        send_command(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
         is_trotting = True
 
 def turn(dir: str='None'):
@@ -107,9 +105,8 @@ def turn(dir: str='None'):
         toggle_trot = False
         if not is_trotting:
             toggle_trot = True
-
-        drive_pub.send(make_cmd(toggle_trot=toggle_trot, y=y, xy_yaw=xy_yaw))
-        # print(make_cmd(toggle_trot=toggle_trot, y=y, xy_yaw=xy_yaw))
+        
+        send_command(make_cmd(toggle_trot=toggle_trot, y=y, xy_yaw=xy_yaw))
         is_trotting = True
 
 def stop_moving():
@@ -119,9 +116,14 @@ def stop_moving():
     if is_trotting:
         toggle_trot = True
     
-    # drive_pub.send(make_cmd(toggle_trot=toggle_trot))
-    print(make_cmd(toggle_trot=toggle_trot))
+    send_command(make_cmd(toggle_trot=toggle_trot))
     is_trotting = False
+
+def send_command(command):
+    drive_pub.send(command)
+
+    if verbose:
+        print(command)
 
 # TODO: create functions that allow the robot to move around (forward,back,right,left,....)
 # Remember: The inputs are mainly digital except for the lx,ly and rx,ry controls.
