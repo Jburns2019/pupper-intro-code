@@ -7,46 +7,46 @@ daniel_file := Team-1/Daniel_movement_commands.py
 Rafael:
 	git fetch upstream
 
-//For John.
+#For John.
 john:
-	git add john_file
+	git add ${john_file}
 	git commit -m "Simpler_update."
 	git pull
 	git push
 
 run-john:
 	git pull
-	python john_file
+	python ${john_file}
 
-//For Hendy.
+#For Hendy.
 hendy:
-	git add hendy_file
+	git add ${hendy_file}
 	git commit -m "Simpler_update."
 	git pull
 	git push
 
 run-hendy:
 	git pull
-	python hendy_file
+	python ${hendy_file}
 
-//For Tim.
+#For Tim.
 tim:
-	git add tim_file
+	git add ${tim_file}
 	git commit -m "Simpler_update."
 	git pull
 	git push
 
 run-tim:
 	git pull
-	python tim_file
+	python ${tim_file}
 
-//For Daniel.
+#For Daniel.
 daniel:
-	git add daniel_file
+	git add ${daniel_file}
 	git commit -m "Simpler_update."
 	git pull
 	git push
 
 run-daniel:
 	git pull
-	python daniel_file
+	python ${daniel_file}
