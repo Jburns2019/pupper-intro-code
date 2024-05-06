@@ -138,9 +138,13 @@ if __name__ == "__main__":
     # time.sleep(1)
     send_command(make_cmd(toggle_activation=True))
     time.sleep(1)
-    for i in range(50):
+    for i in range(10):
+        print(f'Run {i + 1}')
         send_command(make_cmd(trot=True, x=1, y=1))
-        time.sleep(.2)
+        time.sleep(.5)
+        send_command(make_cmd(trot=False))
+        time.sleep(.5)
+        print()
     # send_command(make_cmd(toggle_trot=True))
     # time.sleep(1)
     # send_command(make_cmd(x=1, y=0))
