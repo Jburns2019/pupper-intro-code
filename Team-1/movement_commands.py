@@ -130,11 +130,12 @@ def stop_moving():
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
+    time.sleep(2)
     move('forward')
-    time.sleep(2)
+    time.sleep(10)
     move('right')
-    time.sleep(2)
+    time.sleep(10)
     move('forward-right')
-    time.sleep(2)
+    time.sleep(10)
     deactivate()
     
