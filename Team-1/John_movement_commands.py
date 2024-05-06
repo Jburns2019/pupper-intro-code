@@ -141,6 +141,8 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     time.sleep(1)
+    activate()
+    time.sleep(1)
     i = 0
     while i < 10:
         print(f'Run {i + 1}')
