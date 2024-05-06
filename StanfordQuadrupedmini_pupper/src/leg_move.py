@@ -15,16 +15,27 @@ import time
 # The following test was done plugging in an extra servo to J15
 
 zero = 500000
+ninety = 1500000
 one_eight = 2500000 
 total_degrees = 180
-total_pwm_change = one_eight - zero
-pwm_per_degree = total_pwm_change/total_degrees
+mid_degrees = 90
+
+total_pwm_change_first_half = ninety - zero
+total_pwm_change_second_half = one_eight - zero
+
+
+pwm_per_degree_first_half = total_pwm_change_first_half/mid_degrees
+pwm_per_degree_second_half = total_pwm_change_second_half/total_degrees
 
 
 def move_servo15():
     global zero
     what_degree = 30
-    degree_finder = zero + (pwm_per_degree * what_degree)
+    if what_degree <= 90:
+        degree_finder = zero + (pwm_per_degree_first_half * what_degree)
+    else:
+        degree_finder = zero + (pwm_per_degree_second_half * what_degree)
+
     os.system("echo" + str(degree_finder) + "> /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
     time.sleep(1)
     os.system("echo 2500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle")
