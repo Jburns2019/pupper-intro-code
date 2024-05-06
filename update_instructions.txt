@@ -1,1 +1,8 @@
+#Updating from Rafael's code.
 git fetch upstream
+
+#Putting your code on github.
+git add Team-1/John_movement_commands.py
+git commit -m "Update message."
+git pull
+git push

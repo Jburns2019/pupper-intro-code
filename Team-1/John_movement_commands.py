@@ -1,10 +1,17 @@
-from UDPComms import Publisher
+running_on_pupper = True
+try:
+    from UDPComms import Publisher
+except:
+    running_on_pupper = False
+
 import time
 
 # drive_pub = Publisher(8830) = controls movement of pupper (basically mode 1)
 # arm_pub = Publisher(8410) = controls more movements of upper (mode 2)
 # mode 2 is what you can do when pupper is not in trot mode when using a controller.
-drive_pub = Publisher(8830) 
+drive_pub = None
+if running_on_pupper:
+    drive_pub = Publisher(8830)
 # arm_pub = Publisher(8410)
 # L1 = activate/disactivate
 # R1 = transition between Rest mode and Trot mode.
@@ -22,6 +29,12 @@ drive_pub = Publisher(8830)
 is_on = False
 is_trotting = False
 verbose = True
+
+def wait(times=1.0):
+    start_time = time.time()
+    current_time = time.time()
+    while current_time-start_time < times:
+        current_time = time.time()
 
 def make_cmd(command = None, toggle_activation=False, toggle_trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
     if command == None:
@@ -48,6 +61,8 @@ def activate():
     global is_on
     if not is_on:
         send_command(make_cmd(toggle_activation=True))
+        wait(1)
+        send_command(make_cmd(toggle_activation=True))
         is_on = True
 
 def deactivate():
@@ -59,6 +74,8 @@ def deactivate():
 
     if is_on:
         send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
+        wait(1)
+        send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
         is_on = False
         is_trotting = False
 
@@ -68,7 +85,7 @@ def start_trotting():
         send_command(make_cmd(toggle_trot=True))
         is_trotting = True
 
-        time.sleep(1)
+        wait(1)
 
 def move(dir: str='None'):
     global is_trotting
@@ -128,9 +145,10 @@ def stop_moving():
     is_trotting = False
 
 def send_command(command):
-    drive_pub.send(command)
+    if running_on_pupper:
+        drive_pub.send(command)
 
-    if verbose:
+    if verbose or not running_on_pupper:
         print(command)
 
 # TODO: create functions that allow the robot to move around (forward,back,right,left,....)
@@ -140,33 +158,14 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
-    time.sleep(1)
-    activate()
-    time.sleep(1)
-    i = 0
-    while i < 10:
+    wait(1)
+    for i in range(10):
         print(f'Run {i + 1}')
         move('forward')
-        time.sleep(1)
+        wait(1)
         print()
-        i += 1
     
     stop_moving()
-    time.sleep(2)
+    wait(2)
     deactivate()
-    time.sleep(2)
-    deactivate()
-    
-    # send_command(make_cmd(toggle_trot=True))
-    # time.sleep(1)
-    # send_command(make_cmd(x=1, y=0))
-    # time.sleep(5)
-    # time.sleep(.5)
-    # move('forward')
-    # time.sleep(10)
-    # move('right')
-    # time.sleep(10)
-    # move('forward-right')
-    # time.sleep(10)
-    # deactivate()
     
