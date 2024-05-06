@@ -68,7 +68,7 @@ def start_trotting():
         send_command(make_cmd(toggle_trot=True))
         is_trotting = True
 
-        time.sleep(.2)
+        time.sleep(1)
 
 def move(dir: str='None'):
     global is_trotting
@@ -141,16 +141,19 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     time.sleep(1)
-    for i in range(10):
+    i = 0
+    while i < 10:
         print(f'Run {i + 1}')
         move('forward')
         time.sleep(1)
         print()
+        i += 1
     
     stop_moving()
-    time.sleep(1)
+    time.sleep(2)
     deactivate()
-    time.sleep(1)
+    time.sleep(2)
+    deactivate()
     
     # send_command(make_cmd(toggle_trot=True))
     # time.sleep(1)
