@@ -68,6 +68,8 @@ def start_trotting():
         send_command(make_cmd(toggle_trot=True))
         is_trotting = True
 
+        time.sleep(.2)
+
 def move(dir: str='None'):
     global is_trotting
 
@@ -137,24 +139,23 @@ def send_command(command):
 # Each action needs to be press once then can be ignored (you don't have to keep L1 as 1 you can create an activate function the forget about it)   
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
-    # activate()
-    # time.sleep(1)
-    send_command(make_cmd(toggle_activation=True))
+    activate()
     time.sleep(1)
     for i in range(10):
         print(f'Run {i + 1}')
-        send_command(make_cmd(toggle_activation=True, trot=True, y=1))
+        move('forward')
         time.sleep(1)
         print()
     
-    send_command(make_cmd(toggle_activation=True))
+    stop_moving()
+    time.sleep(1)
+    deactivate()
     time.sleep(1)
     
     # send_command(make_cmd(toggle_trot=True))
     # time.sleep(1)
     # send_command(make_cmd(x=1, y=0))
     # time.sleep(5)
-    send_command(make_cmd())
     # time.sleep(.5)
     # move('forward')
     # time.sleep(10)
