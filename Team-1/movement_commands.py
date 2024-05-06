@@ -59,6 +59,12 @@ def deactivate():
         is_on = False
         is_trotting = False
 
+def start_trotting():
+    global is_trotting
+    if not is_trotting:
+        send_command(make_cmd(toggle_trot=True))
+        is_trotting = True
+
 def move(dir: str='None'):
     global is_trotting
 
@@ -77,15 +83,13 @@ def move(dir: str='None'):
         elif 'back' in dir:
             y = -1
 
-        toggle_trot = False
         if not is_trotting:
-            toggle_trot = True
+            start_trotting()
 
-        send_command(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
-        is_trotting = True
+        send_command(make_cmd(x=x, y=y))
 
 def turn(dir: str='None'):
-    global toggle_trot
+    global is_trotting
 
     if dir == 'None':
         stop_moving()
@@ -104,10 +108,9 @@ def turn(dir: str='None'):
 
         toggle_trot = False
         if not is_trotting:
-            toggle_trot = True
+            start_trotting()
         
-        send_command(make_cmd(toggle_trot=toggle_trot, y=y, xy_yaw=xy_yaw))
-        is_trotting = True
+        send_command(make_cmd(y=y, xy_yaw=xy_yaw))
 
 def stop_moving():
     global is_trotting
@@ -133,8 +136,8 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     time.sleep(2)
-    # move('forward')
-    # time.sleep(10)
+    move('forward')
+    time.sleep(10)
     # move('right')
     # time.sleep(10)
     # move('forward-right')
