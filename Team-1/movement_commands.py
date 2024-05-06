@@ -139,6 +139,7 @@ if __name__ == "__main__":
     send_command(make_cmd(toggle_activation=True, toggle_trot=True))
     send_command(make_cmd(toggle_activation=True, toggle_trot=True, x=1, y=0))
     time.sleep(5)
+    send_command(make_cmd(toggle_activation=False, toggle_trot=False))
     # time.sleep(.5)
     # move('forward')
     # time.sleep(10)
@@ -146,5 +147,5 @@ if __name__ == "__main__":
     # time.sleep(10)
     # move('forward-right')
     # time.sleep(10)
-    deactivate()
+    # deactivate()
     
