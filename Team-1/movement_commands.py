@@ -20,12 +20,11 @@ drive_pub = Publisher(8830)
 # ry = pitches the robot forward
 
 is_on = False
-is_trotting = False
 verbose = True
 
-def make_cmd(command = {}, toggle_activation=False, toggle_trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
+def make_cmd(command = {}, toggle_activation=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
     command["L1"] = int(toggle_activation)
-    command["R1"] = int(toggle_trot)
+    command["R1"] = int(trot)
     command["x"] = int(jump)
     command["circle"] = int(circle)
     command["triangle"] = int(triangle)
@@ -48,20 +47,13 @@ def activate():
         is_on = True
 
 def deactivate():
-    global is_on, is_trotting
-
-    toggle_trot = False
-    if is_trotting:
-        toggle_trot = True
+    global is_on
 
     if is_on:
-        send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
+        send_command(make_cmd(toggle_activation=True))
         is_on = False
-        is_trotting = False
 
 def move(dir: str='None'):
-    global is_trotting
-
     if dir == 'None':
         stop_moving()
     else:
@@ -77,16 +69,9 @@ def move(dir: str='None'):
         elif 'back' in dir:
             y = -1
 
-        toggle_trot = False
-        if not is_trotting:
-            toggle_trot = True
-
-        send_command(make_cmd(toggle_trot=toggle_trot, x=x, y=y))
-        is_trotting = True
+        send_command(make_cmd(trot=True, x=x, y=y))
 
 def turn(dir: str='None'):
-    global toggle_trot
-
     if dir == 'None':
         stop_moving()
     else:
@@ -101,23 +86,11 @@ def turn(dir: str='None'):
             y = 1
         elif 'back' in dir:
             y = -1
-
-        toggle_trot = False
-        if not is_trotting:
-            toggle_trot = True
         
-        send_command(make_cmd(toggle_trot=toggle_trot, y=y, xy_yaw=xy_yaw))
-        is_trotting = True
+        send_command(make_cmd(trot=True, y=y, xy_yaw=xy_yaw))
 
 def stop_moving():
-    global is_trotting
-
-    toggle_trot = False
-    if is_trotting:
-        toggle_trot = True
-    
-    send_command(make_cmd(toggle_trot=toggle_trot))
-    is_trotting = False
+    send_command(make_cmd())
 
 def send_command(command):
     drive_pub.send(command)
