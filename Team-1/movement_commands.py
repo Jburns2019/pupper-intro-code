@@ -19,11 +19,10 @@ drive_pub = Publisher(8830)
 # rx = turn left or right (pitch)
 # ry = pitches the robot forward
 
-is_on = False
 verbose = True
 
-def make_cmd(command = {}, toggle_activation=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
-    command["L1"] = int(toggle_activation)
+def make_cmd(command = {}, on=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
+    command["L1"] = int(on)
     command["R1"] = int(trot)
     command["x"] = int(jump)
     command["circle"] = int(circle)
@@ -41,17 +40,10 @@ def make_cmd(command = {}, toggle_activation=False, trot=False, jump=False, l2=F
     return command
 
 def activate():
-    global is_on
-    if not is_on:
-        send_command(make_cmd(toggle_activation=True))
-        is_on = True
+    send_command(make_cmd(on=True))
 
 def deactivate():
-    global is_on
-
-    if is_on:
-        send_command(make_cmd(toggle_activation=True))
-        is_on = False
+    send_command(make_cmd())
 
 def move(dir: str='None'):
     if dir == 'None':
@@ -69,7 +61,7 @@ def move(dir: str='None'):
         elif 'back' in dir:
             y = -1
 
-        send_command(make_cmd(toggle_activation=True, trot=True, x=x, y=y))
+        send_command(make_cmd(on=True, trot=True, x=x, y=y))
 
 def turn(dir: str='None'):
     if dir == 'None':
@@ -87,10 +79,10 @@ def turn(dir: str='None'):
         elif 'back' in dir:
             y = -1
         
-        send_command(make_cmd(toggle_activation=True, trot=True, y=y, xy_yaw=xy_yaw))
+        send_command(make_cmd(on=True, trot=True, y=y, xy_yaw=xy_yaw))
 
 def stop_moving():
-    send_command(make_cmd())
+    send_command(make_cmd(on=True))
 
 def send_command(command):
     drive_pub.send(command)
@@ -105,12 +97,12 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
-    time.sleep(.5)
+    time.sleep(1)
     move('forward')
-    time.sleep(1)
+    time.sleep(10)
     move('right')
-    time.sleep(1)
+    time.sleep(10)
     move('forward-right')
-    time.sleep(1)
+    time.sleep(10)
     deactivate()
     
