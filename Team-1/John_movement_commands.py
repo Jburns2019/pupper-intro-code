@@ -143,7 +143,7 @@ if __name__ == "__main__":
     time.sleep(1)
     for i in range(10):
         print(f'Run {i + 1}')
-        send_command(make_cmd(toggle_activation=True, trot=True, x=1))
+        send_command(make_cmd(toggle_activation=True, trot=True, y=1))
         time.sleep(1)
         print()
     
