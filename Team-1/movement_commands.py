@@ -23,7 +23,10 @@ is_on = False
 is_trotting = False
 verbose = True
 
-def make_cmd(command = {}, toggle_activation=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
+def make_cmd(command = None, toggle_activation=False, trot=False, jump=False, l2=False, r2=False, y=0, x=0, xy_yaw=0, xy_pitch=0, circle=False, triangle=False, dpadx=0, dpady=0, message_rate=20):
+    if command == None:
+        command = {}
+    
     command["L1"] = int(toggle_activation)
     command["R1"] = int(trot)
     command["x"] = int(jump)
