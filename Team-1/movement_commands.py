@@ -4,8 +4,8 @@ import time
 # drive_pub = Publisher(8830) = controls movement of pupper (basically mode 1)
 # arm_pub = Publisher(8410) = controls more movements of upper (mode 2)
 # mode 2 is what you can do when pupper is not in trot mode when using a controller.
-# drive_pub = Publisher(8830) 
-arm_pub = Publisher(8410)
+drive_pub = Publisher(8830) 
+# arm_pub = Publisher(8410)
 # L1 = activate/disactivate
 # R1 = transition between Rest mode and Trot mode.
 # circle = dance or hold for 3 seconds to turn off system
@@ -123,7 +123,7 @@ def stop_moving():
     is_trotting = False
 
 def send_command(command):
-    arm_pub.send(command)
+    drive_pub.send(command)
 
     if verbose:
         print(command)
@@ -134,12 +134,17 @@ def send_command(command):
 # Each action needs to be press once then can be ignored (you don't have to keep L1 as 1 you can create an activate function the forget about it)   
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
-    activate()
+    # activate()
+    # time.sleep(1)
+    send_command(make_cmd(toggle_activation=True))
     time.sleep(1)
     send_command(make_cmd(toggle_trot=True))
-    send_command(make_cmd(x=1, y=0))
-    time.sleep(5)
-    send_command(make_cmd(toggle_activation=True, toggle_trot=True))
+    time.sleep(1)
+    send_command(make_cmd(toggle_trot=True))
+    time.sleep(1)
+    # send_command(make_cmd(x=1, y=0))
+    # time.sleep(5)
+    send_command(make_cmd(toggle_activation=True))
     # time.sleep(.5)
     # move('forward')
     # time.sleep(10)
