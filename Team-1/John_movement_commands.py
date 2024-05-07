@@ -61,7 +61,7 @@ def activate():
     global is_on
     if not is_on:
         send_command(make_cmd(toggle_activation=True))
-        wait(1)
+        time.sleep(1)
         send_command(make_cmd(toggle_activation=True))
         is_on = True
 
@@ -83,7 +83,7 @@ def start_trotting():
         send_command(make_cmd(toggle_trot=True))
         is_trotting = True
 
-        wait(1)
+        time.sleep(1)
 
 def move(dir: str='None'):
     global is_trotting
@@ -156,14 +156,14 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
-    wait(1)
+    time.sleep(1)
     for i in range(10):
         print(f'Run {i + 1}')
         move('forward')
-        wait(1)
+        time.sleep(1)
         print()
     
     stop_moving()
-    wait(2)
+    time.sleep(2)
     deactivate()
     
