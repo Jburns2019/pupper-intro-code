@@ -161,7 +161,7 @@ if __name__ == "__main__":
     wait(1)
     for i in range(500):
         print(f'Run {i + 1}')
-        if i % 10:
+        if i % 100:
             turn('forward-left')
         else:
             move('forward')
