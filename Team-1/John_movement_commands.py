@@ -162,7 +162,7 @@ if __name__ == "__main__":
     for i in range(5):
         print(f'Run {i + 1}')
         move('forward')
-        wait(1)
+        wait(.02)
         print()
     
     stop_moving()
