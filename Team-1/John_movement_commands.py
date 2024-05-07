@@ -85,7 +85,7 @@ def start_trotting():
         send_command(make_cmd(toggle_trot=True))
         is_trotting = True
 
-        wait(1)
+        wait(.02)
 
 def move(dir: str='None'):
     global is_trotting
@@ -158,7 +158,7 @@ def send_command(command):
 # TODO: make the robot move through the racing track
 if __name__ == "__main__":
     activate()
-    wait(1)
+    wait(.02)
     for i in range(400):
         print(f'Run {i + 1}')
         if i % 10 == 0:
@@ -169,6 +169,6 @@ if __name__ == "__main__":
         print()
     
     stop_moving()
-    wait(1)
+    wait(.02)
     deactivate()
     
