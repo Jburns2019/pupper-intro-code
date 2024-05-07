@@ -36,7 +36,7 @@ def move_servo15():
     else:
         degree_finder = zero + (pwm_per_degree_second_half * what_degree)
 
-    os.system("echo" + str(degree_finder) + "> /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
+    os.system("echo " + str(degree_finder) + " > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
     time.sleep(1)
     os.system(f"echo {one_eight} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
     time.sleep(1)
