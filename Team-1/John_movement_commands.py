@@ -47,7 +47,7 @@ def make_cmd(command = None, toggle_activation=False, toggle_trot=False, jump=Fa
     command["triangle"] = int(triangle)
     command["L2"] = int(l2)
     command["R2"] = int(r2)
-    command["ly"] = y*2
+    command["ly"] = y
     command["lx"] = x
     command["rx"] = xy_yaw
     command["message_rate"] = message_rate
@@ -159,7 +159,7 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     wait(1)
-    for i in range(50):
+    for i in range(5):
         print(f'Run {i + 1}')
         move('forward')
         wait(1)
