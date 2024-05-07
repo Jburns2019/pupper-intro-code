@@ -74,6 +74,8 @@ def deactivate():
 
     if is_on:
         send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
+        wait(1)
+        send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
         is_on = False
         is_trotting = False
 
