@@ -60,7 +60,7 @@ def make_cmd(command = None, toggle_activation=False, toggle_trot=False, jump=Fa
 def activate():
     global is_on
     if not is_on:
-        send_command(make_cmd())
+        send_command(make_cmd(toggle_activation=True))
         wait(2)
         send_command(make_cmd(toggle_activation=True))
         is_on = True
@@ -75,7 +75,7 @@ def deactivate():
     if is_on:
         send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
         wait(2)
-        send_command(make_cmd(message_rate=0))
+        send_command(make_cmd(toggle_activation=True))
         is_on = False
         is_trotting = False
 
