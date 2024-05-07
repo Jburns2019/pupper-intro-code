@@ -61,8 +61,8 @@ def activate():
     global is_on
     if not is_on:
         send_command(make_cmd(toggle_activation=True))
-        wait(2)
-        send_command(make_cmd(toggle_activation=True))
+        wait(1)
+        send_command(make_cmd())
         is_on = True
 
 def deactivate():
@@ -74,8 +74,8 @@ def deactivate():
 
     if is_on:
         send_command(make_cmd(toggle_activation=True, toggle_trot=toggle_trot))
-        wait(2)
-        send_command(make_cmd(toggle_activation=True))
+        wait(1)
+        send_command(make_cmd())
         is_on = False
         is_trotting = False
 
