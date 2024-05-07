@@ -47,7 +47,7 @@ def make_cmd(command = None, toggle_activation=False, toggle_trot=False, jump=Fa
     command["triangle"] = int(triangle)
     command["L2"] = int(l2)
     command["R2"] = int(r2)
-    command["ly"] = y*50
+    command["ly"] = y*2
     command["lx"] = x
     command["rx"] = xy_yaw
     command["message_rate"] = message_rate
