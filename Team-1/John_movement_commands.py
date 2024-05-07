@@ -159,13 +159,13 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     wait(1)
-    for i in range(10):
+    for i in range(100):
         print(f'Run {i + 1}')
         move('forward')
         wait(1)
         print()
     
     stop_moving()
-    wait(2)
+    wait(1)
     deactivate()
     
