@@ -159,7 +159,7 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     wait(.02)
-    for i in range(350):
+    for i in range(50):
         print(f'Run {i + 1}')
         # if i % 10 == 0:
         #     turn('forward-left')
