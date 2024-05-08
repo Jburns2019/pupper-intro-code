@@ -152,7 +152,11 @@ def send_command(command):
         print(command)
 
 def turn_by_degrees(deg=360, dir='left'):
-    for i in range(int(deg/360.0*250.0)):
+    count = int(deg/360.0*250.0)
+    if dir == 'right':
+        count = int(deg/360.0*280.0)
+    
+    for i in range(count):
         turn(dir)
         wait(.02)
 
