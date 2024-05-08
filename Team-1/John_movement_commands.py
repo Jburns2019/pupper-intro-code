@@ -162,10 +162,10 @@ if __name__ == "__main__":
     for i in range(350):
         print(f'Run {i + 1}')
         if i % 10 == 0:
-            turn('forward-left')
+            turn('left')
         else:
             move('forward')
-        wait(1)
+        wait(.02)
         print()
     
     stop_moving()
