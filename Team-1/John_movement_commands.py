@@ -177,7 +177,7 @@ if __name__ == "__main__":
 
     #     print()
 
-    turn_by_degrees(180, 'right')
+    turn_by_degrees(360, 'right')
     
     stop_moving()
     wait(.02)
