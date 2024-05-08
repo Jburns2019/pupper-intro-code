@@ -165,7 +165,7 @@ if __name__ == "__main__":
             turn('forward-left')
         else:
             move('forward')
-        wait(.02)
+        wait(1)
         print()
     
     stop_moving()
