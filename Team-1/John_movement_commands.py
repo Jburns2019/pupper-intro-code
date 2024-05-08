@@ -165,7 +165,7 @@ def move_by_feet(amount=3, dir='forward'):
     
     for i in range(count):
         if i % 10 == 0 and dir == 'forward':
-            turn('forward-left')
+            turn('forward-right')
         else:
             move(dir)
         wait(.02)
