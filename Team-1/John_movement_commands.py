@@ -161,7 +161,7 @@ def turn_by_degrees(deg=360, dir='left'):
         wait(.02)
 
 def move_by_feet(amount=3, dir='forward'):
-    count = int(amount/3.0*400.0)
+    count = int(amount/3.0*450.0)
     
     for i in range(count):
         if i % 40 == 0 and dir == 'forward':
