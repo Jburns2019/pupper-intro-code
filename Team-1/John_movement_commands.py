@@ -160,6 +160,16 @@ def turn_by_degrees(deg=360, dir='left'):
         turn(dir)
         wait(.02)
 
+def move_by_feet(amount=3, dir='forward'):
+    count = int(amount/3.0*350.0)
+    
+    for i in range(count):
+        if i % 10 == 0 and dir == 'forward':
+            turn('forward-left')
+        else:
+            move(dir)
+        wait(.02)
+
 # TODO: create functions that allow the robot to move around (forward,back,right,left,....)
 # Remember: The inputs are mainly digital except for the lx,ly and rx,ry controls.
 # The digital inputs do not reset after being call unless you design them to! (i.e., if you press L1 it will remaind press)
@@ -168,20 +178,9 @@ def turn_by_degrees(deg=360, dir='left'):
 if __name__ == "__main__":
     activate()
     wait(.02)
-    # for i in range(240):#range(350):
-    #     print(f'Run {i + 1}')
-    #     # if i % 10 == 0:
-    #     #     turn('forward-left')
-    #     # else:
-    #     #     move('forward')
-    #     # wait(.02)
-
-    #     turn('left')
-    #     wait(.02)
-
-    #     print()
-
-    turn_by_degrees(360, 'right')
+    
+    move_by_feet(1, 'forward')
+    # turn_by_degrees(360, 'right')
     
     stop_moving()
     wait(.02)
