@@ -164,10 +164,10 @@ def move_by_feet(amount=3, dir='forward'):
     count = int(amount/3.0*350.0)
     
     for i in range(count):
-        if i % 10 == 0 and dir == 'forward':
-            turn('forward-right')
-        else:
-            move(dir)
+        # if i % 10 == 0 and dir == 'forward':
+        #     turn('forward-right')
+        # else:
+        move(dir)
         wait(.02)
 
 # TODO: create functions that allow the robot to move around (forward,back,right,left,....)
