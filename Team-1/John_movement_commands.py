@@ -179,7 +179,7 @@ if __name__ == "__main__":
     activate()
     wait(.02)
     
-    move_by_feet(1, 'forward')
+    move_by_feet(3, 'forward')
     # turn_by_degrees(360, 'right')
     
     stop_moving()
