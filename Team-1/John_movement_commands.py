@@ -151,6 +151,11 @@ def send_command(command):
     if verbose or not running_on_pupper:
         print(command)
 
+def turn_by_degrees(deg=360, dir='left'):
+    for i in range(int(deg*240/360)):
+        turn(dir)
+        wait(.02)
+
 # TODO: create functions that allow the robot to move around (forward,back,right,left,....)
 # Remember: The inputs are mainly digital except for the lx,ly and rx,ry controls.
 # The digital inputs do not reset after being call unless you design them to! (i.e., if you press L1 it will remaind press)
@@ -159,18 +164,20 @@ def send_command(command):
 if __name__ == "__main__":
     activate()
     wait(.02)
-    for i in range(240):#range(350):
-        print(f'Run {i + 1}')
-        # if i % 10 == 0:
-        #     turn('forward-left')
-        # else:
-        #     move('forward')
-        # wait(.02)
+    # for i in range(240):#range(350):
+    #     print(f'Run {i + 1}')
+    #     # if i % 10 == 0:
+    #     #     turn('forward-left')
+    #     # else:
+    #     #     move('forward')
+    #     # wait(.02)
 
-        turn('left')
-        wait(.02)
+    #     turn('left')
+    #     wait(.02)
 
-        print()
+    #     print()
+
+    turn_by_degrees(180)
     
     stop_moving()
     wait(.02)
