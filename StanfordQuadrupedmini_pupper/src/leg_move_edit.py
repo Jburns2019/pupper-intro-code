@@ -48,7 +48,6 @@ def make_front_left_foot_walk():
         for walk_pos_index in range(len(walk_poses)):
             send_angle(walk_poses[walk_pos_index][0], 11)
             send_angle(walk_poses[walk_pos_index][1], 10)
-            time.sleep(.1)
 
             send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][0], 4)
             send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][1], 5)
@@ -56,7 +55,6 @@ def make_front_left_foot_walk():
 
             send_angle(walk_poses[walk_pos_index][0], 14)
             send_angle(walk_poses[walk_pos_index][1], 13)
-            time.sleep(.1)
 
             send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][0], 7)
             send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][1], 8)
