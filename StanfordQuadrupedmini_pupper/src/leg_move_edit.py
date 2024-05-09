@@ -43,7 +43,7 @@ def make_front_left_foot_walk():
     #     time.sleep(3)
 
     start = [(70, 90)]
-    send_angle(110, 11)
+    send_angle(100, 11)
     send_angle(90, 10)
 
 def main():
