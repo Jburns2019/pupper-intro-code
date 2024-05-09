@@ -17,38 +17,22 @@ import time
 zero = 500000
 ninety = 1500000
 one_eight = 2500000
-total_degrees = 180
-mid_degrees = 90
-
-total_pwm_change_first_half = ninety - zero
-total_pwm_change_second_half = one_eight - zero
-
-
-pwm_per_degree_first_half = total_pwm_change_first_half/mid_degrees
-pwm_per_degree_second_half = total_pwm_change_second_half/total_degrees
 
 def foot_angle(deg=0):
-    return int(180.0/(one_eight-zero)*deg + zero)
+    return int(deg*(one_eight-zero)/180.0 + zero)
 
-def move_servo15():
-    global zero
-    what_degree = 30
-    if what_degree <= 90:
-        degree_finder = zero + (pwm_per_degree_first_half * what_degree)
-    else:
-        degree_finder = zero + (pwm_per_degree_second_half * what_degree)
+def send_angle(angle=0):
+    os.system(f"echo {foot_angle(angle)} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
 
-    os.system(f"echo {degree_finder} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
-    # time.sleep(1)
-    # os.system(f"echo {} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
-    time.sleep(1)
-    os.system(f"echo {zero} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
-
-    print("done")
+def make_front_left_foot_walk():
+    for i in range(0, 180, 5):
+        send_angle(i)
+        time.sleep(1)
 
 def main():
     os.system("sudo systemctl stop robot")
-    move_servo15()
+    make_front_left_foot_walk()
+    os.system("sudo systemctl stop robot")
 
 if __name__ == "__main__":
     main()
