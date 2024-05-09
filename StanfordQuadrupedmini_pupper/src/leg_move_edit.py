@@ -29,6 +29,9 @@ def send_angle(angle=0, servo_num=10):
 
 
 def make_front_left_foot_walk():
+    send_angle(20, 10)
+    send_angle(20, 11)
+
     for i in range(40, 140, 20):
         send_angle(i, 10)
         time.sleep(3)
