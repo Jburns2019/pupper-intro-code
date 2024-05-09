@@ -41,8 +41,8 @@ def move_servo15():
     os.system(f"echo {degree_finder} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
     time.sleep(1)
     os.system(f"echo {foot_angle(50)} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
-    # time.sleep(1)
-    # os.system(f"echo {zero} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
+    time.sleep(1)
+    os.system(f"echo {zero} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
 
     print("done")
 
