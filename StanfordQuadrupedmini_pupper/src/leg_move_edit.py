@@ -29,11 +29,13 @@ def send_angle(angle=0, servo_num=10):
 
 
 def make_front_left_foot_walk():
-    for i in range(0, 180, 20):
+    for i in range(0, 140, 20):
         send_angle(i, 10)
         time.sleep(3)
     
-    send_angle(50, 11)
+    for i in range(0, 140, 20):
+        send_angle(i, 11)
+        time.sleep(3)
 
 def main():
     os.system("sudo systemctl stop robot")
