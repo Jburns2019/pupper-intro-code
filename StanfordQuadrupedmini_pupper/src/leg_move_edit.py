@@ -14,6 +14,7 @@ import time
 
 # The following test was done plugging in an extra servo to J15
 
+verbose = True
 zero = 500000
 ninety = 1500000
 one_eight = 2500000
@@ -21,13 +22,18 @@ one_eight = 2500000
 def foot_angle(deg=0):
     return int(deg*(one_eight-zero)/180.0 + zero)
 
-def send_angle(angle=0):
-    os.system(f"echo {foot_angle(angle)} > /sys/class/pwm/pwmchip0/pwm10/duty_cycle")
+def send_angle(angle=0, servo_num=10):
+    os.system(f"echo {foot_angle(angle)} > /sys/class/pwm/pwmchip0/pwm{servo_num}/duty_cycle")
+    if verbose:
+        print(f'Moved servo {servo_num} to {angle}.')
+
 
 def make_front_left_foot_walk():
-    for i in range(0, 180, 5):
-        send_angle(i)
-        time.sleep(5)
+    for i in range(0, 180, 20):
+        send_angle(i, 10)
+        time.sleep(3)
+    
+    send_angle(50, 11)
 
 def main():
     os.system("sudo systemctl stop robot")
