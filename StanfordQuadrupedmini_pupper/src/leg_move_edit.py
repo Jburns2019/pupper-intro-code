@@ -43,7 +43,7 @@ def make_front_left_foot_walk():
     #     time.sleep(3)
 
     send_angle(45, 10)
-    send_angle(90, 11)
+    send_angle(10, 11)
 
 def main():
     os.system("sudo systemctl stop robot")
