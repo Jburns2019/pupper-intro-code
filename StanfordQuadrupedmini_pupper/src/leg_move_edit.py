@@ -51,8 +51,8 @@ def make_front_left_foot_walk():
             send_angle(leg, 10)
             time.sleep(.1)
             
-            send_angle(hip, 1)
-            send_angle(leg, 2)
+            send_angle(hip, 13)
+            send_angle(leg, 14)
             time.sleep(.1)
 
             send_angle(hip, 4)
