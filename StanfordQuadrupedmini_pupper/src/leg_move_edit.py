@@ -14,7 +14,7 @@ import time
 
 # The following test was done plugging in an extra servo to J15
 
-verbose = True
+verbose = False
 zero = 500000
 ninety = 1500000
 one_eight = 2500000
@@ -42,14 +42,14 @@ def make_front_left_foot_walk():
     #     send_angle(i, 11)
     #     time.sleep(3)
 
-    start = [(70, 90), (100, 90), (20, 45)]
+    start = [(70, 90), (100, 90), (20, 50)]
     # send_angle(100, 11)
     # send_angle(90, 10)
     while True:
         for hip, leg in start:
             send_angle(hip, 11)
             send_angle(leg, 10)
-            time.sleep(.5)
+            time.sleep(.1)
 
 def main():
     os.system("sudo systemctl stop robot")
