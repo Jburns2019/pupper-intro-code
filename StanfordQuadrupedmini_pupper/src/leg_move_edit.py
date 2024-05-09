@@ -24,9 +24,9 @@ def foot_angle(deg=0):
 
 def send_angle(angle=0, servo_num=10):
     os.system(f"echo {foot_angle(angle)} > /sys/class/pwm/pwmchip0/pwm{servo_num}/duty_cycle")
+
     if verbose:
         print(f'Moved servo {servo_num} to {angle}.')
-
 
 def make_front_left_foot_walk():
     # send_angle(20, 10)
@@ -43,7 +43,7 @@ def make_front_left_foot_walk():
     #     time.sleep(3)
 
     send_angle(45, 10)
-    send_angle(45, 11)
+    send_angle(90, 11)
 
 def main():
     os.system("sudo systemctl stop robot")
