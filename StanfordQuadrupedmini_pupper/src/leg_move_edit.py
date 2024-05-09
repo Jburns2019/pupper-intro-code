@@ -42,7 +42,7 @@ def make_front_left_foot_walk():
     #     send_angle(i, 11)
     #     time.sleep(3)
 
-    start = [(70, 90), (100, 90)]
+    start = [(70, 90), (100, 90), (90, 150)]
     # send_angle(100, 11)
     # send_angle(90, 10)
     for hip, leg in start:
