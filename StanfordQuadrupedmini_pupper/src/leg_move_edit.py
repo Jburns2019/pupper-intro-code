@@ -16,7 +16,6 @@ import time
 
 verbose = False
 zero = 500000
-ninety = 1500000
 one_eight = 2500000
 
 def foot_angle(deg=0):
@@ -28,39 +27,39 @@ def send_angle(angle=0, servo_num=10):
     if verbose:
         print(f'Moved servo {servo_num} to {angle}.')
 
+def show_all_poses():
+    send_angle(20, 10)
+    send_angle(20, 11)
+
+    for i in range(40, 140, 20):
+        send_angle(i, 10)
+        time.sleep(3)
+    
+    send_angle(20, 11)
+    
+    for i in range(40, 120, 20):
+        send_angle(i, 11)
+        time.sleep(3)
+
 def make_front_left_foot_walk():
-    # send_angle(20, 10)
-    # send_angle(20, 11)
 
-    # for i in range(40, 140, 20):
-    #     send_angle(i, 10)
-    #     time.sleep(3)
-    
-    # send_angle(20, 11)
-    
-    # for i in range(40, 120, 20):
-    #     send_angle(i, 11)
-    #     time.sleep(3)
-
-    start = [(70, 90), (100, 90), (100, 40), (30, 70)]
-    # send_angle(100, 11)
-    # send_angle(90, 10)
+    walk_poses = [(70, 90), (100, 90), (100, 40), (30, 70)]
     while True:
-        for hip, leg in start:
-            send_angle(hip, 11)
-            send_angle(leg, 10)
-            time.sleep(.1)
-            
-            send_angle(hip, 13)
-            send_angle(leg, 14)
+        for walk_pos_index in range(len(walk_poses)):
+            send_angle(walk_poses[walk_pos_index][0], 11)
+            send_angle(walk_poses[walk_pos_index][1], 10)
             time.sleep(.1)
 
-            send_angle(hip, 4)
-            send_angle(leg, 5)
+            send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][0], 4)
+            send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][1], 5)
             time.sleep(.1)
 
-            send_angle(hip, 7)
-            send_angle(leg, 8)
+            send_angle(walk_poses[walk_pos_index][0], 13)
+            send_angle(walk_poses[walk_pos_index][1], 12)
+            time.sleep(.1)
+
+            send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][0], 7)
+            send_angle(walk_poses[len(walk_poses)-walk_pos_index-1][1], 8)
             time.sleep(.1)
 
 def main():
